@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트 도서관</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-book-reader"></i> 스마트 도서관</h1>
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="#" class="active" data-section="home">홈</a></li>
+                    <li><a href="#" data-section="search">도서 검색</a></li>
+                    <li><a href="#" data-section="mypage">마이페이지</a></li>
+                </ul>
+                <ul class="auth-nav">
+                    <li><a href="#" data-section="login" id="loginLink">로그인</a></li>
+                    <li><a href="#" data-section="signup" id="signupLink">회원가입</a></li>
+                    <li><a href="#" id="logoutLink" style="display: none;">로그아웃</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>원하는 책을 쉽고 빠르게!</h2>
+                    <p>스마트 도서관에서 방대한 자료를 탐색하고 편리하게 대출하세요.</p>
+                    <button class="btn-primary" data-section="search">도서 검색 시작하기</button>
+                </div>
+                <div class="hero-image">
+                    <img src="https://design.co.kr/wp-content/uploads/2024/06/2415_03A_3copy.jpg" alt="도서관 내부 이미지">
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>정확한 검색</h3>
+                    <p>아래 도서 검색 탭에서 책을 찾아보세요.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bell"></i>
+                    <h3>대출 알림</h3>
+                    <p>원하는 책의 대출 가능 여부를 구독하고 알림을 받으세요.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>간편한 관리</h3>
+                    <p>마이페이지에서 대출 내역과 구독 정보를 한눈에 관리합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="search" class="section">
+            <h2><i class="fas fa-search"></i> 도서 검색</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="책 제목, 저자 등으로 검색">
+                <button id="searchButton"><i class="fas fa-search"></i> 검색</button>
+            </div>
+            <div id="searchResults" class="book-list">
+                <!-- 모든 책 목록을 여기에 직접 작성 -->
+                <li class="book-item" data-book-id="b001">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788966262472.jpg" alt="클린 코드 표지">
+                    <h4>클린 코드</h4>
+                    <p><strong>저자:</strong> 로버트 C. 마틴</p>
+                    <p><strong>출판사:</strong> 인사이트</p>
+                    <p><strong>ISBN:</strong> 978-8983718041</p>
+                    <p><strong>상태:</strong> <span class="status available" data-status="available">대출 가능</span></p>
+                    <p><strong>위치:</strong> <span class="location-tag">A-3-2</span></p>
+                    <div class="actions">
+                        <button class="btn-borrow" data-action="borrow">대출하기</button>
+                        <button class="btn-subscribe" data-action="subscribe">구독하기</button>
+                    </div>
+                </li>
+                <li class="book-item" data-book-id="b002">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788998139766.jpg" alt="객체지향의 사실과 오해 표지">
+                    <h4>객체지향의 사실과 오해</h4>
+                    <p><strong>저자:</strong> 조영호</p>
+                    <p><strong>출판사:</strong> 위키북스</p>
+                    <p><strong>ISBN:</strong> 978-8994506896</p>
+                    <p><strong>상태:</strong> <span class="status borrowed" data-status="borrowed">대출 중</span></p>
+                    <p><strong>위치:</strong> <span class="location-tag">B-1-5</span></p>
+                    <div class="actions">
+                        <button class="btn-subscribe" data-action="subscribe">구독하기</button>
+                    </div>
+                </li>
+                <li class="book-item" data-book-id="b003">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9791189413408.jpg" alt="데미안 표지">
+                    <h4>데미안</h4>
+                    <p><strong>저자:</strong> 헤르만 헤세</p>
+                    <p><strong>출판사:</strong> 민음사</p>
+                    <p><strong>ISBN:</strong> 978-8937460292</p>
+                    <p><strong>상태:</strong> <span class="status available" data-status="available">대출 가능</span></p>
+                    <p><strong>위치:</strong> <span class="location-tag">C-2-1</span></p>
+                    <div class="actions">
+                        <button class="btn-borrow" data-action="borrow">대출하기</button>
+                        <button class="btn-subscribe" data-action="subscribe">구독하기</button>
+                    </div>
+                </li>
+                <li class="book-item" data-book-id="b004">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788983711892.jpg" alt="코스모스 표지">
+                    <h4>코스모스</h4>
+                    <p><strong>저자:</strong> 칼 세이건</p>
+                    <p><strong>출판사:</strong> 사이언스북스</p>
+                    <p><strong>ISBN:</strong> 978-8983711881</p>
+                    <p><strong>상태:</strong> <span class="status available" data-status="available">대출 가능</span></p>
+                    <p><strong>위치:</strong> <span class="location-tag">D-4-3</span></p>
+                    <div class="actions">
+                        <button class="btn-borrow" data-action="borrow">대출하기</button>
+                        <button class="btn-subscribe" data-action="subscribe">구독하기</button>
+                    </div>
+                </li>
+                <li class="book-item" data-book-id="b005">
+                    <img src="https://contents.kyobobook.co.kr/sih/fit-in/400x0/pdt/9788960532410.jpg" alt="토지 1부 표지">
+                    <h4>토지 1부</h4>
+                    <p><strong>저자:</strong> 박경리</p>
+                    <p><strong>출판사:</strong> 나남출판</p>
+                    <p><strong>ISBN:</strong> 978-8930060012</p>
+                    <p><strong>상태:</strong> <span class="status available" data-status="available">대출 가능</span></p>
+                    <p><strong>위치:</strong> <span class="location-tag">F-5-1</span></p>
+                    <div class="actions">
+                        <button class="btn-borrow" data-action="borrow">대출하기</button>
+                        <button class="btn-subscribe" data-action="subscribe">구독하기</button>
+                    </div>
+                </li>
+            </div>
+        </section>
+
+        <section id="mypage" class="section">
+            <h2><i class="fas fa-user"></i> 마이페이지</h2>
+            <div class="mypage-content">
+                <h3><i class="fas fa-id-card"></i> 계정 정보</h3>
+                <p><strong>사용자 이름:</strong> <span id="mypageUsername">게스트</span></p>
+                <p><strong>이메일:</strong> <span id="mypageEmail">guest@example.com</span></p>
+                <button class="btn-secondary" id="editProfileButton" style="display: none;">계정 설정 변경</button>
+
+                <h3><i class="fas fa-bookmark"></i> 구독 중인 책</h3>
+                <ul id="subscribedBooks" class="book-list">
+                    <li class="book-item no-data">로그인 후 이용해주세요.</li>
+                </ul>
+
+                <h3><i class="fas fa-clipboard-list"></i> 대출 기록</h3>
+                <ul id="borrowedBooks" class="book-list">
+                    <li class="book-item no-data">로그인 후 이용해주세요.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="login" class="section auth-form">
+            <h2><i class="fas fa-sign-in-alt"></i> 로그인</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">이메일:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">비밀번호:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">로그인</button>
+                <p class="auth-switch">계정이 없으신가요? <a href="#" data-section="signup">회원가입</a></p>
+            </form>
+        </section>
+
+        <section id="signup" class="section auth-form">
+            <h2><i class="fas fa-user-plus"></i> 회원가입</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">사용자 이름:</label>
+                    <input type="text" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">이메일:</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">비밀번호:</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">비밀번호 확인:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">회원가입</button>
+                <p class="auth-switch">이미 계정이 있으신가요? <a href="#" data-section="login">로그인</a></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 스마트 도서관. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
